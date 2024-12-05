@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Course Platform</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <h1>Free courses</h1>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="online-courses.html">Online Courses</a>
+                <a href="add-course.html">Add Course</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Filter opcija -->
+        <section class="filter">
+           <h3> Filter by Course Type:<h3>
+            <select id="filter-type">
+                <option value="all">All</option>
+                <option value="programming">Programming</option>
+                <option value="design">Design</option>
+                <option value="math">Math</option>
+                <option value="language">Language</option>
+            </select>
+        </section>
+
+        <!-- Prikaz kurseva -->
+        <section id="course-list">
+            <!-- Kursevi će biti dinamički prikazani ovde -->
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 My Course Platform</p>
+    </footer>
+
+    
+
+    <script>
+        const courses = [
+            { name: "JavaScript Basics", type: "Programming", teacher: "John Doe", online: false, description: "Learn JS from scratch." },
+            { name: "HTML & CSS", type: "Design", teacher: "Jane Smith", online: false, description: "Build beautiful websites." },
+            { name: "React Development", type: "Programming", teacher: "Mike Lee", online: true, description: "Master React for web apps." },
+            { name: "Advanced Mathematics", type: "Math", teacher: "Sarah Green", online: true, description: "Dive deep into advanced math topics." },
+            { name: "Spanish Language", type: "Language", teacher: "Luis Martinez", online: false, description: "Learn conversational Spanish." },
+            { name: "Python for Data Science", type: "Programming", teacher: "Emma Brown", online: true, description: "Use Python for data analysis." },
+            { name: "Graphic Design Principles", type: "Design", teacher: "Sophia White", online: false, description: "Explore design theory and tools." },
+            { name: "Basic Algebra", type: "Math", teacher: "David Wilson", online: false, description: "Understand algebraic concepts easily." },
+            { name: "French Language", type: "Language", teacher: "Chloe Dupont", online: true, description: "Start speaking French today." },
+            { name: "Web Accessibility", type: "Design", teacher: "Oliver Smith", online: true, description: "Create inclusive web designs." },
+            { name: "JavaScript Basics", type: "Programming", teacher: "John Doe", online: false, description: "Learn JS from scratch." },
+            { name: "HTML & CSS", type: "Design", teacher: "Jane Smith", online: false, description: "Build beautiful websites." },
+            { name: "React Development", type: "Programming", teacher: "Mike Lee", online: true, description: "Master React for web apps." },
+            { name: "Advanced Mathematics", type: "Math", teacher: "Sarah Green", online: true, description: "Dive deep into advanced math topics." },
+            { name: "Spanish Language", type: "Language", teacher: "Luis Martinez", online: false, description: "Learn conversational Spanish." },
+            { name: "Python for Data Science", type: "Programming", teacher: "Emma Brown", online: true, description: "Use Python for data analysis." },
+            { name: "Graphic Design Principles", type: "Design", teacher: "Sophia White", online: false, description: "Explore design theory and tools." },
+            { name: "Basic Algebra", type: "Math", teacher: "David Wilson", online: false, description: "Understand algebraic concepts easily." },
+            { name: "French Language", type: "Language", teacher: "Chloe Dupont", online: true, description: "Start speaking French today." },
+            { name: "Web Accessibility", type: "Design", teacher: "Oliver Smith", online: true, description: "Create inclusive web designs." },
+            { name: "JavaScript Basics", type: "Programming", teacher: "John Doe", online: false, description: "Learn JS from scratch." },
+            { name: "HTML & CSS", type: "Design", teacher: "Jane Smith", online: false, description: "Build beautiful websites." },
+            { name: "React Development", type: "Programming", teacher: "Mike Lee", online: true, description: "Master React for web apps." },
+            { name: "Advanced Mathematics", type: "Math", teacher: "Sarah Green", online: true, description: "Dive deep into advanced math topics." },
+            { name: "Spanish Language", type: "Language", teacher: "Luis Martinez", online: false, description: "Learn conversational Spanish." },
+            { name: "Python for Data Science", type: "Programming", teacher: "Emma Brown", online: true, description: "Use Python for data analysis." },
+            { name: "Graphic Design Principles", type: "Design", teacher: "Sophia White", online: false, description: "Explore design theory and tools." },
+            { name: "Basic Algebra", type: "Math", teacher: "David Wilson", online: false, description: "Understand algebraic concepts easily." },
+            { name: "French Language", type: "Language", teacher: "Chloe Dupont", online: true, description: "Start speaking French today." },
+            { name: "Web Accessibility", type: "Design", teacher: "Oliver Smith", online: true, description: "Create inclusive web designs." },
+        ];
+
+        function displayCourses(filterType = "all") {
+            const courseList = document.getElementById("course-list");
+            courseList.innerHTML = ""; // Očisti prethodne kurseve
+
+            const filteredCourses = filterType === "all" ? courses : courses.filter(course => course.type.toLowerCase() === filterType.toLowerCase());
+
+            filteredCourses.forEach(course => {
+                const courseItem = document.createElement("div");
+                courseItem.classList.add("course-item");
+
+                // Koristi template literal (backticks ` `)
+                courseItem.innerHTML = `
+                    <h3>${course.name}</h3>
+                    <p><strong>Type:</strong> ${course.type}</p>
+                    <p><strong>Teacher:</strong> ${course.teacher}</p>
+                    <p>${course.description}</p>
+                    <p><strong>Mode:</strong> ${course.online ? "Online" : "Offline"}</p>
+                `;
+
+                courseList.appendChild(courseItem);
+            });}
+        
+
+        document.getElementById("filter-type").addEventListener("change", (e) => {
+            displayCourses(e.target.value);
+        });
+
+        displayCourses();
+    </script>
+</body>
+</html>
+<section id="course-list"></section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Course Platform</title>
+</head>
+<body>
+    
+    <section id="course-list"></section> <!-- Ovdje će biti prikazani kursevi -->
+
+    <script src="home.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Course Platform</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <h1>Nas sajt za besplatno ucenje</h1>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="online-courses.html">Online Courses</a>
+                <a href="add-course.html">Add Course</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <h2>All Courses</h2>
+        <section id="course-list"></section> <!-- Ovdje će biti prikazani kursevi -->
+    </main>
+
+    <footer>
+        <p>&copy; 2024 My Course Platform</p>
+    </footer>
+
+    <script src="home.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
