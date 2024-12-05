@@ -241,3 +241,71 @@ function displayOnlineCourses() {
 }
 
 window.onload = displayOnlineCourses;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Login form submission
+document.getElementById('loginForm').addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+  
+    try {
+      const response = await fetch('/api/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ username, password })
+      });
+  
+      if (response.ok) {
+        const { authToken } = await response.json();
+        localStorage.setItem('authToken', authToken);
+        window.location.href = '/dashboard';
+      } else {
+        // Display an error message
+        alert('Invalid username or password');
+      }
+    } catch (error) {
+      console.error('Error logging in:', error);
+    }
+  });
+  
+  // Logout functionality
+  document.getElementById('logoutButton').addEventListener('click', async () => {
+    try {
+      const authToken = localStorage.getItem('authToken');
+      await fetch('/api/logout', {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${authToken}`
+        }
+      });
+      localStorage.removeItem('authToken');
+      window.location.href = '/login';
+    } catch (error) {
+      console.error('Error logging out:', error);
+    }
+  });
